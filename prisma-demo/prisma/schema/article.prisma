@@ -1,0 +1,15 @@
+model article {
+  id          BigInt   @id @default(autoincrement()) @db.UnsignedBigInt
+  title       String
+  content     String   @db.Text
+  publishedAt DateTime
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  User   user   @relation(fields: [userId], references: [id])
+  userId BigInt @db.UnsignedBigInt
+
+  category   category @relation(fields: [categoryId], references: [id])
+  categoryId BigInt   @db.UnsignedBigInt
+}

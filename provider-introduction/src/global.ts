@@ -1,0 +1,1 @@
+export const GLOBAL_APP_SERVICE = 'GLOBAL_APP_SERVICE';

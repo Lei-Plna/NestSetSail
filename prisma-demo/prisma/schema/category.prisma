@@ -1,0 +1,9 @@
+model category {
+  id   BigInt @id @default(autoincrement()) @db.UnsignedBigInt
+  name String
+
+  article article[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
