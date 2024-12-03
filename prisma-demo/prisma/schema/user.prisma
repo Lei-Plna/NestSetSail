@@ -1,12 +1,11 @@
 model user {
-  id       BigInt  @id @default(autoincrement()) @db.UnsignedBigInt
-  username String  @unique
-  password String  @db.VarChar(60)
-  email    String  @unique
-  name     String?
-  github   String?
-  twitter  String?
-
+  id        BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+  username  String    @unique
+  password  String    @db.VarChar(60)
+  email     String    @unique
+  name      String?
+  github    String?
+  twitter   String?
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   article   article[]

@@ -6,6 +6,7 @@ export function userSeed() {
     return prisma.user.create({
       data: {
         email: Random.email(),
+        name: Random.name(),
         password: Random.word(6),
         username: Random.word(6),
         github: Random.url(),

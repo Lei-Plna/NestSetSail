@@ -1,0 +1,4 @@
+model comment {
+  id      BigInt @id @default(autoincrement()) @db.UnsignedBigInt
+  content String @db.Text
+}

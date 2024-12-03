@@ -3,13 +3,13 @@ model article {
   title       String
   content     String   @db.Text
   publishedAt DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      BigInt   @db.UnsignedBigInt
+  categoryId  BigInt   @db.UnsignedBigInt
+  category    category @relation(fields: [categoryId], references: [id])
+  User        user     @relation(fields: [userId], references: [id])
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  User   user   @relation(fields: [userId], references: [id])
-  userId BigInt @db.UnsignedBigInt
-
-  category   category @relation(fields: [categoryId], references: [id])
-  categoryId BigInt   @db.UnsignedBigInt
+  @@index([categoryId], map: "article_categoryId_fkey")
+  @@index([userId], map: "article_userId_fkey")
 }
